@@ -1,0 +1,9 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        numToIndex={}
+        for i in range(len(nums)):
+            dif=target-nums[i]
+            if dif in numToIndex:
+                return numToIndex[dif],i
+            numToIndex[nums[i]]=i
+        
