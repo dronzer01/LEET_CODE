@@ -1,0 +1,13 @@
+class Solution(object):
+    def reverse(self, x):
+        neg=False
+        if x<0:
+            neg=True
+            x=-x
+        y=0
+        while x:
+            y=y*10+x%10
+            x=x//10
+        if y>=pow(2,31)-1 or y<=pow(-2,31):
+            return 0
+        return -y if neg else y

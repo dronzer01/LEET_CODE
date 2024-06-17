@@ -1,0 +1,20 @@
+class Solution(object):
+    def isPalindrome(self, x):
+        if x < 0 or (x and x % 10 == 0):
+            return False
+        y = 0
+        while y < x:
+            y = y * 10 + x % 10
+            x //= 10
+        return x in (y, y // 10)
+
+or
+
+class Solution(object):
+    def isPalindrome(self, x):
+        y=str(x)
+        a=len(y)
+        for i in range(a):
+            if y[i]!=y[a-i-1]:
+                return alse
+        return True
