@@ -1,0 +1,31 @@
+class Solution(object):
+    def letterCombinations(self, digits):
+        if digits=="":
+            return []
+        num_dict = {"2":"abc","3":"def","4":"ghi","5":"jkl",
+                    "6":"mno","7":"pqrs","8":"tuv","9":"wxyz"}
+        ret=[]
+        stack=[]
+        def dfs(i):
+            if i>=len(digits):
+                ret.append("".join(stack))
+                return
+            num_dict_str = num_dict[digits[i]]
+            for s in num_dict_str:
+                stack.append(s)
+                dfs(i+1)
+                stack.pop(-1)          
+            return        
+        dfs(0)
+        return ret
+        while (len(q)!=0):
+            current = q.front()
+            q.pop()
+
+            if (current.size() == digits.size()):
+                ans.push_back(current)
+            else:
+                letterOptions = mapping[digits[current.size()] - '0'];
+                for letter in letterOptions:
+                    q.push(current + letter)
+        return ans
